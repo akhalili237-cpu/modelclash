@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink font-sans text-zinc-200 antialiased;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: rgb(249 115 22 / 0.35);
+}
+
+/* scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #262637 transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #262637;
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a3a52;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* streaming caret */
+.streaming::after {
+  content: '▍';
+  display: inline-block;
+  color: #f97316;
+  animation: blink 1s steps(2) infinite;
+  margin-inline-start: 2px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* tournament confetti */
+@keyframes fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(320px) rotate(300deg);
+    opacity: 0;
+  }
+}
+
+/* range slider */
+input[type='range'] {
+  height: 6px;
+  border-radius: 6px;
+  background: #262637;
+  appearance: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f97316, #ec4899);
+  cursor: pointer;
+  border: none;
+}
+
+/* selects */
+select option {
+  background: #12121a;
+  color: #e4e4e7;
+}
